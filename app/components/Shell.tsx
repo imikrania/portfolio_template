@@ -1,9 +1,16 @@
-import { Montserrat } from "next/font/google";
+import localFont from "next/font/local";
 import "../globals.css";
 
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  weight: ["200", "300", "400", "500"],
+// Self-hosted on purpose. next/font/google downloads the font during the build, and that download
+// failed on the GitHub runner with "Cannot resolve '@vercel/turbopack-next/internal/font/google/font'",
+// which took the whole deployment down. Local files make the build deterministic and offline-capable.
+// Only the weights the stylesheets ask for are here: font-light, the default, and font-medium.
+const montserrat = localFont({
+  src: [
+    { path: "../fonts/montserrat-latin-300-normal.woff2", weight: "300", style: "normal" },
+    { path: "../fonts/montserrat-latin-400-normal.woff2", weight: "400", style: "normal" },
+    { path: "../fonts/montserrat-latin-500-normal.woff2", weight: "500", style: "normal" },
+  ],
   variable: "--font-montserrat",
   display: "swap",
 });
