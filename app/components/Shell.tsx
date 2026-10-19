@@ -15,10 +15,10 @@ const montserrat = localFont({
   display: "swap",
 });
 
-// Runs before first paint. A visitor whose system prefers dark must not see a light flash, and a
-// stored choice must win over the system preference. An unreadable localStorage (private mode,
-// disabled storage) falls back to the system preference instead of throwing.
-const themeScript = `(function(){try{var s=localStorage.getItem("theme");var d=s?s==="dark":window.matchMedia("(prefers-color-scheme: dark)").matches;if(d){document.documentElement.classList.add("dark")}}catch(e){}})();`;
+// Runs before first paint so a stored dark choice never flashes light, and vice versa. The system
+// preference is deliberately not consulted: the site's default is light, and a first visitor should
+// see the owner's intended look, which is how reference 1 behaves.
+const themeScript = `(function(){try{if(localStorage.getItem("theme")==="dark"){document.documentElement.classList.add("dark")}}catch(e){}})();`;
 
 export function Shell({ lang, children }: { lang: string; children: React.ReactNode }) {
   return (
