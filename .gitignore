@@ -6,3 +6,6 @@ next-env.d.ts
 .DS_Store
 Thumbs.db
 .env*.local
+
+# Local editing notes. Deliberately not published, and not carried into a clone.
+docs/
