@@ -3,13 +3,16 @@ import { skillGroups, skillLevels, type SkillLevel } from "@/content/site";
 import { cn } from "../lib/cn";
 import { Section } from "./Section";
 
+// Same treatment as reference 1's SkillButton: small, medium weight, and the gradient deepens
+// on hover, which is what makes a pill read as a button. The pills stay list items because they
+// do nothing on click, and a button that does nothing lies to assistive technology.
 const levelStyles: Record<SkillLevel, string> = {
   expert:
-    "border-[#8B4343]/30 bg-gradient-to-r from-[#FFE4E4] to-[#FFD7D7] text-[#8B4343] dark:border-[#FFB8B8]/25 dark:from-[#4A2F2F] dark:to-[#5A3F3F] dark:text-[#FFB8B8]",
+    "rounded-full border border-opacity-20 border-[#8B4343] bg-gradient-to-r from-[#FFE4E4] to-[#FFD7D7] px-3 py-1.5 text-xs font-medium text-[#8B4343] transition-all duration-300 hover:scale-105 hover:from-[#FFD7D7] hover:to-[#FFC8C8] dark:border-[#FFB8B8] dark:from-[#4A2F2F] dark:to-[#5A3F3F] dark:text-[#FFB8B8] dark:hover:from-[#5A3F3F] dark:hover:to-[#6A4F4F]",
   intermediate:
-    "border-[#437B74]/30 bg-gradient-to-r from-[#E4F5F3] to-[#B8E6E1] text-[#437B74] dark:border-[#95D8D2]/25 dark:from-[#2F4A47] dark:to-[#3F5A57] dark:text-[#95D8D2]",
+    "rounded-full border border-opacity-20 border-[#437B74] bg-gradient-to-r from-[#E4F5F3] to-[#B8E6E1] px-3 py-1.5 text-xs font-medium text-[#437B74] transition-all duration-300 hover:scale-105 hover:from-[#B8E6E1] hover:to-[#95D8D2] dark:border-[#95D8D2] dark:from-[#2F4A47] dark:to-[#3F5A57] dark:text-[#95D8D2] dark:hover:from-[#3F5A57] dark:hover:to-[#4F6A67]",
   beginner:
-    "border-gray-300 bg-gradient-to-r from-[#F8F9FA] to-[#E9ECEF] text-gray-600 dark:border-gray-600 dark:from-gray-700 dark:to-gray-600 dark:text-gray-300",
+    "rounded-full border border-opacity-20 border-gray-400 bg-gradient-to-r from-[#F8F9FA] to-[#E9ECEF] px-3 py-1.5 text-xs font-medium text-gray-600 transition-all duration-300 hover:scale-105 hover:from-[#E9ECEF] hover:to-[#DEE2E6] dark:border-gray-500 dark:from-gray-800 dark:to-gray-700 dark:text-gray-300 dark:hover:from-gray-700 dark:hover:to-gray-600",
 };
 
 const levelDots: Record<SkillLevel, string> = {
@@ -45,10 +48,7 @@ export function Skills({ content }: { content: SiteContent }) {
             </h3>
             <ul className="flex flex-wrap gap-1.5">
               {group.items.map((item) => (
-                <li
-                  key={item.name}
-                  className={cn("rounded-full border px-3 py-1 text-sm transition-transform hover:scale-105", levelStyles[item.level])}
-                >
+                <li key={item.name} className={levelStyles[item.level]}>
                   {item.name}
                 </li>
               ))}

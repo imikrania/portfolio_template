@@ -50,11 +50,13 @@ export function About({ content }: { content: SiteContent }) {
         </div>
       </div>
 
-      <div className="mt-12 space-y-4 leading-relaxed text-gray-700 dark:text-gray-300">
-        {about.paragraphs.map((paragraph) => (
-          <p key={paragraph}>{paragraph}</p>
-        ))}
-      </div>
+      {about.paragraphs.length > 0 ? (
+        <div className="mt-12 space-y-4 leading-relaxed text-gray-700 dark:text-gray-300">
+          {about.paragraphs.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
+        </div>
+      ) : null}
     </Section>
   );
 }

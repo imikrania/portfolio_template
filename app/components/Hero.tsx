@@ -13,12 +13,16 @@ export function Hero({ content }: { content: SiteContent }) {
         <h1 className="animate-fade-in mt-5 text-4xl font-light tracking-wider md:text-6xl" style={{ animationDelay: "120ms" }}>
           {person.name}
         </h1>
-        <p className="animate-fade-in mt-6 max-w-2xl text-lg text-gray-600 md:text-xl dark:text-gray-300" style={{ animationDelay: "240ms" }}>
-          {person.tagline}
-        </p>
-        <p className="animate-fade-in mt-3 text-sm text-gray-500 dark:text-gray-400" style={{ animationDelay: "300ms" }}>
-          {person.location}
-        </p>
+        {person.tagline ? (
+          <p className="animate-fade-in mt-6 max-w-2xl text-lg text-gray-600 md:text-xl dark:text-gray-300" style={{ animationDelay: "240ms" }}>
+            {person.tagline}
+          </p>
+        ) : null}
+        {person.location ? (
+          <p className="animate-fade-in mt-3 text-sm text-gray-500 dark:text-gray-400" style={{ animationDelay: "300ms" }}>
+            {person.location}
+          </p>
+        ) : null}
         <div className="animate-fade-in mt-10 flex flex-wrap justify-center gap-3" style={{ animationDelay: "380ms" }}>
           <a href="#projects" className="border-accent bg-accent rounded-full border px-5 py-2 text-sm text-white transition-colors hover:opacity-90">
             {content.nav.projects}

@@ -9,8 +9,8 @@ const content = {
   person: {
     name: "アレックス・ドウ",
     role: "ソフトウェアエンジニア",
-    tagline: "後から変えやすい Web プロダクトを作っています。",
-    location: "リモート勤務、UTC+9",
+    tagline: "",
+    location: "",
     avatar: null,
   },
   labels: {
@@ -25,19 +25,16 @@ const content = {
     collapseAll: "すべて閉じる",
   },
   nav: {
-    about: "自己紹介",
-    skills: "スキル",
-    experience: "職歴",
-    certifications: "資格",
-    projects: "プロジェクト",
-    contact: "連絡先",
+    about: "Profile",
+    skills: "Skills",
+    experience: "Experience",
+    certifications: "Certifications",
+    projects: "Projects",
+    contact: "Contact",
   },
   about: {
-    title: "自己紹介",
-    paragraphs: [
-      "Web アプリケーションを 6 年ほど作ってきました。担当は主にフロントエンドとその下の API 層です。後から変えるのが高くつく部分が好きなので、画面よりもデータモデルに時間をかけることが多くなります。",
-      "仕事の外では小さなツールを書いたり、他人のソースコードを読んだりしています。机の前で解けなかった問題は、歩いているときに解けることが多いです。",
-    ],
+    title: "Profile",
+    paragraphs: [],
     highlights: [
       { label: "関心", value: "Web プラットフォームと開発者向けツール" },
       { label: "使用言語", value: "TypeScript、Go、Rust" },
@@ -46,8 +43,8 @@ const content = {
     ],
   },
   skills: {
-    title: "スキル",
-    intro: "習熟度は資格ではなく、現在の自分の感覚です。",
+    title: "Skills",
+    intro: "",
     levels: { expert: "得意", intermediate: "実務で使用", beginner: "学習中" },
     groups: {
       languages: "プログラミング言語",
@@ -58,7 +55,7 @@ const content = {
     },
   },
   experience: {
-    title: "職歴",
+    title: "Experience",
     positions: {
       northwind: {
         title: "シニアソフトウェアエンジニア",
@@ -88,12 +85,12 @@ const content = {
     },
   },
   certifications: {
-    title: "資格",
-    intro: "継続して維持している資格です。",
+    title: "Certifications",
+    intro: "",
     categories: { aws: "Amazon Web Services", other: "その他" },
   },
   projects: {
-    title: "プロジェクト",
+    title: "Projects",
     entries: {
       atlas: {
         name: "Atlas",
@@ -128,8 +125,8 @@ const content = {
     },
   },
   contact: {
-    title: "連絡先",
-    body: "連絡はメールが一番早いです。1、2 日以内に返信します。",
+    title: "Contact",
+    body: "",
     linkLabels: {
       github: "GitHub",
       x: "X",

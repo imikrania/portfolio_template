@@ -7,7 +7,7 @@ The repository ships with sample content for a fictional engineer called Alex Do
 
 ## What you get
 
-- Six sections. About, skills, experience, certifications, projects, and contact.
+- Six sections. Profile, skills, experience, certifications, projects, and contact. The section names stay English on the Japanese page, as reference 1 does.
 - Two languages, English and Japanese, with a switcher in the header.
 - Light and dark themes. The site starts light, a visitor can switch to dark, and the choice survives a reload.
 - A working GitHub Pages deployment that handles the `/<repository>/` prefix a project site needs.

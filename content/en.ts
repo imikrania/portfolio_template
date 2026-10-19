@@ -9,8 +9,8 @@ const content = {
   person: {
     name: "Alex Doe",
     role: "Software Engineer",
-    tagline: "I build web products that stay easy to change.",
-    location: "Remote, UTC+9",
+    tagline: "",
+    location: "",
     avatar: null,
   },
   labels: {
@@ -25,7 +25,7 @@ const content = {
     collapseAll: "Collapse all",
   },
   nav: {
-    about: "About",
+    about: "Profile",
     skills: "Skills",
     experience: "Experience",
     certifications: "Certifications",
@@ -33,11 +33,8 @@ const content = {
     contact: "Contact",
   },
   about: {
-    title: "About",
-    paragraphs: [
-      "I have spent six years building web applications, mostly the frontend and the API layer behind it. The parts that are expensive to change later are the parts I like working on, so the data model usually gets more of my attention than the screen.",
-      "Outside work I write small tools, read other people's source code, and take long walks to think through problems I could not solve at the desk.",
-    ],
+    title: "Profile",
+    paragraphs: [],
     highlights: [
       { label: "Focus", value: "Web platform and developer tooling" },
       { label: "Languages", value: "TypeScript, Go, Rust" },
@@ -47,7 +44,7 @@ const content = {
   },
   skills: {
     title: "Skills",
-    intro: "These levels are my own reading of where I stand today, not a certification.",
+    intro: "",
     levels: { expert: "Expert", intermediate: "Intermediate", beginner: "Beginner" },
     groups: {
       languages: "Languages",
@@ -89,7 +86,7 @@ const content = {
   },
   certifications: {
     title: "Certifications",
-    intro: "Credentials I keep current.",
+    intro: "",
     categories: { aws: "Amazon Web Services", other: "Other" },
   },
   projects: {
@@ -129,7 +126,7 @@ const content = {
   },
   contact: {
     title: "Contact",
-    body: "Email is the fastest way to reach me. I answer within a day or two.",
+    body: "",
     linkLabels: {
       github: "GitHub",
       x: "X",
