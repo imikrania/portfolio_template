@@ -81,21 +81,25 @@ export function Navigation({ content, locale }: { content: SiteContent; locale: 
         </div>
       </nav>
 
-      {menuOpen ? (
-        <ul id="mobile-navigation" className="border-t border-gray-200/60 md:hidden dark:border-gray-800/60">
-          {sectionIds.map((id) => (
-            <li key={id}>
-              <a
-                href={`#${id}`}
-                onClick={() => setMenuOpen(false)}
-                className="hover:text-accent block px-4 py-3 text-sm text-gray-700 dark:text-gray-200"
-              >
-                {content.nav[id]}
-              </a>
-            </li>
-          ))}
-        </ul>
-      ) : null}
+      {/* Always rendered, closed with the hidden attribute: the button's aria-controls has to
+          resolve to an element even while the menu is shut. */}
+      <ul
+        id="mobile-navigation"
+        hidden={!menuOpen}
+        className="border-t border-gray-200/60 md:hidden dark:border-gray-800/60"
+      >
+        {sectionIds.map((id) => (
+          <li key={id}>
+            <a
+              href={`#${id}`}
+              onClick={() => setMenuOpen(false)}
+              className="hover:text-accent block px-4 py-3 text-sm text-gray-700 dark:text-gray-200"
+            >
+              {content.nav[id]}
+            </a>
+          </li>
+        ))}
+      </ul>
     </header>
   );
 }
