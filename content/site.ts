@@ -4,7 +4,7 @@
 
 export const locales = ["en", "ja"] as const;
 export type Locale = (typeof locales)[number];
-export const defaultLocale: Locale = "en";
+export const defaultLocale: Locale = "ja";
 
 // Each language named in itself, so a switcher does not need a translation of every language name.
 export const localeNames: Record<Locale, string> = { en: "English", ja: "日本語" };

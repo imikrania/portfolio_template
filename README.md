@@ -67,6 +67,9 @@ path, for example `"/photo.jpg"`.
 `projects.entries` in `content/en.ts` and `content/ja.ts`. Running `npm run typecheck` tells you if
 you missed one, and names the key.
 
+**Change the default language.** Set `defaultLocale` in `content/site.ts`. The default language is
+served at `/`, every other language at `/<locale>/`. The template ships with Japanese as the default.
+
 **Drop a language.** Remove it from `locales` in `content/site.ts`, then remove the matching entry from
 `byLocale` in `content/index.ts` and delete the unused locale file. The type checker rejects a
 `byLocale` that still lists it.

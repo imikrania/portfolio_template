@@ -15,8 +15,8 @@ export function Experience({ content }: { content: SiteContent }) {
           const entry = content.experience.positions[position.id];
           const onLeft = index % 2 === 0;
           return (
-            <li key={position.id} className="relative md:grid md:grid-cols-2 md:items-start md:gap-24">
-              <span className="bg-accent/10 text-accent absolute top-0 left-1/2 hidden -translate-x-1/2 rounded-full px-4 py-1.5 text-xs font-medium whitespace-nowrap backdrop-blur-sm md:block dark:bg-gray-200/10 dark:text-gray-200">
+            <li key={position.id} className="relative md:grid md:grid-cols-2 md:gap-40">
+              <span className="bg-accent/10 text-accent absolute top-1/2 left-1/2 hidden -translate-x-1/2 -translate-y-1/2 rounded-full px-4 py-1.5 text-xs font-medium whitespace-nowrap backdrop-blur-sm md:block dark:bg-gray-200/10 dark:text-gray-200">
                 {position.period}
               </span>
               <div className={cn("md:row-start-1", onLeft ? "md:col-start-1" : "md:col-start-2")}>
