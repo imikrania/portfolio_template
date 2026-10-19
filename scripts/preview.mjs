@@ -5,8 +5,13 @@ import { readFile, stat } from "node:fs/promises";
 import { join, extname, resolve } from "node:path";
 
 const OUT = resolve("out");
-const PREFIX = process.env.NEXT_PUBLIC_BASE_PATH || "/portfolio_template";
 const PORT = Number(process.env.PORT ?? 4321);
+
+// A user site is served from the domain root, and the workflow expresses that as an empty
+// NEXT_PUBLIC_BASE_PATH. An environment variable set to empty does not reliably reach a child
+// process on Windows, so "/" is accepted as the same instruction.
+const configured = process.env.NEXT_PUBLIC_BASE_PATH ?? "/portfolio_template";
+const PREFIX = configured === "/" ? "" : configured;
 
 const CONTENT_TYPES = {
   ".html": "text/html; charset=utf-8",
@@ -24,7 +29,7 @@ const CONTENT_TYPES = {
 const server = createServer(async (request, response) => {
   const pathname = decodeURIComponent(new URL(request.url, "http://localhost").pathname);
 
-  if (!pathname.startsWith(PREFIX)) {
+  if (PREFIX && !pathname.startsWith(PREFIX)) {
     response.writeHead(404, { "content-type": "text/plain" }).end("Not under " + PREFIX);
     return;
   }

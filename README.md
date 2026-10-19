@@ -38,8 +38,14 @@ npm run build
 npm run preview
 `@
 
-The preview serves `out/` at http://localhost:4321/portfolio_template/. Change the prefix with the
-`NEXT_PUBLIC_BASE_PATH` environment variable if your repository has a different name.
+The preview serves `out/` at http://localhost:4321/portfolio_template/. Set `NEXT_PUBLIC_BASE_PATH` to
+your repository name to preview a project site. To preview a user site at the root, build and preview it
+with the prefix set to `/`.
+
+```bash
+NEXT_PUBLIC_BASE_PATH=/ npm run build
+NEXT_PUBLIC_BASE_PATH=/ npm run preview
+```
 
 ## Make it yours
 
