@@ -12,10 +12,11 @@ import type {
 export interface SiteContent {
   locale: Locale;
   meta: { title: string; description: string };
-  person: { name: string; role: string; tagline: string; location: string };
+  person: { name: string; role: string; tagline: string; location: string; avatar: string | null };
   labels: {
     skipToContent: string;
     menu: string;
+    navigation: string;
     theme: string;
     language: string;
     repository: string;

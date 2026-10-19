@@ -11,10 +11,12 @@ const content = {
     role: "ソフトウェアエンジニア",
     tagline: "後から変えやすい Web プロダクトを作っています。",
     location: "リモート勤務、UTC+9",
+    avatar: null,
   },
   labels: {
     skipToContent: "本文へ移動",
     menu: "メニュー",
+    navigation: "サイトナビゲーション",
     theme: "配色テーマを切り替える",
     language: "言語を切り替える",
     repository: "リポジトリ",

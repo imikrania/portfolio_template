@@ -11,10 +11,12 @@ const content = {
     role: "Software Engineer",
     tagline: "I build web products that stay easy to change.",
     location: "Remote, UTC+9",
+    avatar: null,
   },
   labels: {
     skipToContent: "Skip to content",
     menu: "Menu",
+    navigation: "Site navigation",
     theme: "Toggle color theme",
     language: "Change language",
     repository: "Repository",

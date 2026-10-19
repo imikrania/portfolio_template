@@ -19,7 +19,7 @@ export function PortfolioPage({ content }: { content: SiteContent }) {
       >
         {content.labels.skipToContent}
       </a>
-      <Navigation content={content} locale={content.locale} />
+      <Navigation content={content} />
       <main id="main" tabIndex={-1}>
         <Hero content={content} />
         <About content={content} />

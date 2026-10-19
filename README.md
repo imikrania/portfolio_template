@@ -9,7 +9,7 @@ The repository ships with sample content for a fictional engineer called Alex Do
 
 - Six sections. About, skills, experience, certifications, projects, and contact.
 - Two languages, English and Japanese, with a switcher in the header.
-- Light and dark themes. The theme follows the system setting until a visitor picks one, and the choice survives a reload.
+- Light and dark themes. The site starts light, a visitor can switch to dark, and the choice survives a reload.
 - A working GitHub Pages deployment that handles the `/<repository>/` prefix a project site needs.
 - No analytics, no runtime API call, and no font request after the first load.
 
@@ -58,8 +58,10 @@ Three files hold everything you replace. No component needs an edit.
 | `content/ja.ts` | All Japanese prose |
 
 **Change the person.** Edit `person`, `about`, and `contact` in both locale files, and the sample
-projects, positions, certifications, and links in `content/site.ts`. The name in the header, the page
-title, and the footer all read from those.
+projects, positions, certifications, and links in `content/site.ts`. The hero and the page title read
+from those. `person.avatar` starts as `null`, which renders a circle with the person's initials. To
+show a photo instead, put the file in `public/` and set `person.avatar` in both locale files to its
+path, for example `"/photo.jpg"`.
 
 **Add a project.** Add an entry to `projects` in `content/site.ts`, then add the matching key to
 `projects.entries` in `content/en.ts` and `content/ja.ts`. Running `npm run typecheck` tells you if
@@ -110,7 +112,7 @@ npm run preview     # serve the exported site at the GitHub Pages prefix
 - `next.config.ts` reads `NEXT_PUBLIC_BASE_PATH` and applies it as `basePath`. Nothing else in the repository restates the prefix.
 - `app/lib/base-path.ts` exists because `next/image` does not apply `basePath` to a string `src`. Any file in `public/` goes through `asset()`.
 - `content/site.ts` owns every id. The locale files use `Record<Id, ...>` over those ids, so a missing translation is a type error rather than a blank space on the page.
-- `app/components/Shell.tsx` sets the theme class in an inline script before first paint, which is why a dark-mode visitor sees no light flash.
+- `app/components/Shell.tsx` applies a stored dark choice in an inline script before first paint. The default is light and the system preference is ignored on purpose, so a first visitor always sees the intended look.
 - `app/fonts/` holds the three Montserrat weights the site uses. They are committed rather than fetched, because `next/font/google` downloads during the build and that download failed on a GitHub runner. The font is under the SIL Open Font License; `app/fonts/OFL.txt` has the text.
 - The two root layouts, `app/(default)/layout.tsx` and `app/[locale]/layout.tsx`, exist so each language can set its own `lang` on the `<html>` element. Next.js allows this only when there is no `app/layout.tsx`.
 

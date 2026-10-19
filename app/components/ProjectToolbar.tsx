@@ -12,14 +12,14 @@ export function ProjectToolbar({ labels }: { labels: { expandAll: string; collap
       <button
         type="button"
         onClick={() => setAll(true)}
-        className="hover:border-accent hover:text-accent rounded-full border border-gray-300 px-3 py-1 text-xs transition-colors dark:border-gray-700"
+        className="hover:text-accent px-3 py-1.5 text-sm text-gray-600 transition-colors dark:text-gray-300 dark:hover:text-white"
       >
         {labels.expandAll}
       </button>
       <button
         type="button"
         onClick={() => setAll(false)}
-        className="hover:border-accent hover:text-accent rounded-full border border-gray-300 px-3 py-1 text-xs transition-colors dark:border-gray-700"
+        className="hover:text-accent px-3 py-1.5 text-sm text-gray-600 transition-colors dark:text-gray-300 dark:hover:text-white"
       >
         {labels.collapseAll}
       </button>

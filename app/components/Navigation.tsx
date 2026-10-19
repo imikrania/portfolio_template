@@ -1,13 +1,12 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useState } from "react";
-import { hrefFor, sectionIds, type Locale, type SectionId, type SiteContent } from "@/content";
+import { sectionIds, type SectionId, type SiteContent } from "@/content";
 import { cn } from "../lib/cn";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { ThemeToggle } from "./ThemeToggle";
 
-export function Navigation({ content, locale }: { content: SiteContent; locale: Locale }) {
+export function Navigation({ content }: { content: SiteContent }) {
   const [active, setActive] = useState<SectionId | null>(null);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -36,12 +35,7 @@ export function Navigation({ content, locale }: { content: SiteContent; locale: 
 
   return (
     <header className="fixed top-0 z-50 w-full border-b border-gray-200/60 bg-white/70 backdrop-blur-sm dark:border-gray-800/60 dark:bg-gray-900/70">
-      <nav aria-label={content.person.name} className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3">
-        {/* prefetch is off for the same reason as in LanguageSwitcher: a static export cannot answer it. */}
-        <Link href={hrefFor(locale)} prefetch={false} className="text-accent text-sm font-medium tracking-wider">
-          {content.person.name}
-        </Link>
-
+      <nav aria-label={content.labels.navigation} className="mx-auto flex max-w-7xl items-center gap-4 px-4 py-3">
         <ul className="hidden items-center gap-6 md:flex">
           {sectionIds.map((id) => (
             <li key={id}>
@@ -50,7 +44,9 @@ export function Navigation({ content, locale }: { content: SiteContent; locale: 
                 aria-current={active === id ? "true" : undefined}
                 className={cn(
                   "text-sm transition-colors",
-                  active === id ? "text-accent" : "hover:text-accent text-gray-600 dark:text-gray-300",
+                  active === id
+                    ? "text-accent font-medium dark:text-white"
+                    : "hover:text-accent text-gray-600 dark:text-gray-300",
                 )}
               >
                 {content.nav[id]}
@@ -59,9 +55,9 @@ export function Navigation({ content, locale }: { content: SiteContent; locale: 
           ))}
         </ul>
 
-        <div className="flex items-center gap-1.5">
+        <div className="ml-auto flex items-center gap-1.5">
           <ThemeToggle label={content.labels.theme} />
-          <LanguageSwitcher current={locale} label={content.labels.language} />
+          <LanguageSwitcher current={content.locale} label={content.labels.language} />
           <button
             type="button"
             onClick={() => setMenuOpen((open) => !open)}
