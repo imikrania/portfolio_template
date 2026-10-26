@@ -57,9 +57,11 @@ Three files hold everything you replace. No component needs an edit.
 | `content/en.ts` | All English prose |
 | `content/ja.ts` | All Japanese prose |
 
-**Change the person.** Edit `person`, `about`, and `contact` in both locale files, and the sample
-projects, positions, certifications, and links in `content/site.ts`. The hero and the page title read
-from those. `person.avatar` starts as `null`, which renders a circle with the person's initials. To
+**Change the person.** Edit `person`, `hero`, `about`, and `contact` in both locale files, and the
+sample projects, positions, certifications, and links in `content/site.ts`. The hero reads the name,
+role and `person.tagline` from there, and counts its three figures from `content/site.ts` itself, so
+they cannot drift; `hero.facts` only labels them and `hero.scroll` names the link to the profile.
+`person.avatar` starts as `null`, which renders a circle with the person's initials. To
 show a photo instead, put the file in `public/` and set `person.avatar` in both locale files to its
 path, for example `"/photo.jpg"`.
 

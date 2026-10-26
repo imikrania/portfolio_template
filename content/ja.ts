@@ -9,7 +9,7 @@ const content = {
   person: {
     name: "アレックス・ドウ",
     role: "ソフトウェアエンジニア",
-    tagline: "",
+    tagline: "TypeScript と Go で、あとから変えにくい部分を設計します。",
     location: "",
     avatar: null,
   },
@@ -23,6 +23,10 @@ const content = {
     live: "公開サイト",
     expandAll: "すべて開く",
     collapseAll: "すべて閉じる",
+  },
+  hero: {
+    facts: { projects: "プロジェクト", certifications: "資格", skills: "技術" },
+    scroll: "プロフィールへ",
   },
   nav: {
     about: "Profile",

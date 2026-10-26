@@ -9,7 +9,7 @@ const content = {
   person: {
     name: "Alex Doe",
     role: "Software Engineer",
-    tagline: "",
+    tagline: "I build web products in TypeScript and Go, and take on the parts that get expensive to change later.",
     location: "",
     avatar: null,
   },
@@ -23,6 +23,10 @@ const content = {
     live: "Live site",
     expandAll: "Expand all",
     collapseAll: "Collapse all",
+  },
+  hero: {
+    facts: { projects: "Projects", certifications: "Certifications", skills: "Skills" },
+    scroll: "Read the profile",
   },
   nav: {
     about: "Profile",

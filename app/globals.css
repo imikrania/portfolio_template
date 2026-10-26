@@ -20,6 +20,53 @@
   }
 }
 
+/* The hero plays once on arrival and stops, so its parts are plain CSS animations: a scripted
+   timeline would start after hydration and leave the name blank for anyone whose bundle is slow.
+   The mask is a line of text rising from behind its own edge (Motion Prompt #005). */
+@layer components {
+  .hero-mask {
+    animation: hero-mask 0.95s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .hero-rise {
+    animation: hero-rise 0.85s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .hero-bob {
+    animation: hero-bob 2.4s ease-in-out infinite;
+  }
+
+  @keyframes hero-mask {
+    from {
+      transform: translateY(105%);
+    }
+    to {
+      transform: none;
+    }
+  }
+
+  @keyframes hero-rise {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes hero-bob {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(4px);
+    }
+  }
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -49,6 +96,7 @@
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }

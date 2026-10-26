@@ -25,6 +25,10 @@ export interface SiteContent {
     collapseAll: string;
   };
   nav: Record<SectionId, string>;
+  hero: {
+    facts: { projects: string; certifications: string; skills: string };
+    scroll: string;
+  };
   about: {
     title: string;
     paragraphs: string[];
